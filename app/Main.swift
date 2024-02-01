@@ -7,17 +7,19 @@
 
 import SwiftUI
 import SwiftData
-//import linphonesw
+import linphonesw
 
 @main
 struct Main: App {
+    let app = AppState()
+    
     init() {
-        
+        try! app.core.start()
     }
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(app: app)
         }
     }
 }
