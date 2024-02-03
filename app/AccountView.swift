@@ -1,14 +1,17 @@
 import SwiftUI
+import SwiftData
 import linphonesw
 
 struct AccountView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
     @ObservedObject var app: AppState
     
     @State private var username = ""
     @State private var password = ""
-    @State private var server = ""
+    @State private var domain = ""
     @State private var transport = TransportType.Tls
+    
     
     var body: some View {
         NavigationStack {
@@ -18,7 +21,7 @@ struct AccountView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     SecureField("Password", text: $password)
-                    TextField("Server: sip.dieklingel.com", text: $server)
+                    TextField("Server: sip.dieklingel.com", text: $domain)
                         .autocapitalization(.none)
                         .keyboardType(.URL)
                         .autocorrectionDisabled()
@@ -29,7 +32,17 @@ struct AccountView: View {
                         Text("TCP").tag(TransportType.Tcp)
                         Text("UDP").tag(TransportType.Udp)
                     }
-
+                    
+                }
+                Section {
+                    Button("Remove Account", role: .destructive) {
+                        if let account = app.unregister() {
+                            context.delete(account)
+                            try! context.save()
+                        }
+                        dismiss()
+                    }
+                    .disabled(app.account == nil)
                 }
             }
             .navigationTitle("SIP Account")
@@ -37,38 +50,31 @@ struct AccountView: View {
             .toolbar {
                 ToolbarItem {
                     Button("Done") {
-                        let info = try! app.core.authInfoList.first ?? Factory.Instance.createAuthInfo(username: username, userid: nil, passwd: nil, ha1: nil, realm: nil, domain: nil)
-                        info.username = username
-                        info.password = password
-                        info.domain = server
-                        app.core.addAuthInfo(info: info)
-        
-                        let params = try! app.core.createAccountParams()
-                        let address = try! Factory.Instance.createAddress(addr: "sip:\(username)@\(server)")
-                        try! params.setIdentityaddress(newValue: address)
-                        try! params.setServeraddress(newValue: address)
-                        params.registerEnabled = true
-                        params.transport = transport
-                        
-                        let account = try! app.core.defaultAccount ?? app.core.createAccount(params: params)
-                        account.params = params
-                        
-                        try! app.core.addAccount(account: account)
-                        app.core.defaultAccount = account
-                        
-                        // TODO: save account
-        
+                        if let account = app.unregister() {
+                            account.username = username
+                            account.password = password
+                            account.domain = domain
+                            account.transport = transport
+                            
+                            try! context.save()
+                            app.register(account: account)
+                        } else {
+                            let account = Account(username: username, password: password, domain: domain, transport: transport)
+                            
+                            context.insert(account)
+                            app.register(account: account)
+                        }             
                         dismiss()
                     }
-                    .disabled(username.isEmpty || password.isEmpty || server.isEmpty)
+                    .disabled(username.isEmpty || password.isEmpty || domain.isEmpty)
                 }
             }
         }
         .onAppear {
-            username = app.core.authInfoList.first?.username ?? ""
-            password = app.core.authInfoList.first?.password ?? ""
-            server = app.core.authInfoList.first?.domain ?? ""
-            transport = app.core.defaultAccount?.params?.transport ?? TransportType.Tls
+            username = app.account?.username ?? username
+            password = app.account?.password ?? password
+            domain = app.account?.domain ?? domain
+            transport = app.account?.transport ?? transport
         }
     }
 }
