@@ -13,10 +13,7 @@
 		2A9829652B6971FD00952815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9829642B6971FD00952815 /* Assets.xcassets */; };
 		2A9829682B6971FD00952815 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9829672B6971FD00952815 /* Preview Assets.xcassets */; };
 		2ABCE35C2B6AD7C8003A1518 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCE35B2B6AD7C8003A1518 /* AccountView.swift */; };
-		2ABCE3632B6AF017003A1518 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCE3622B6AF017003A1518 /* AppState.swift */; };
-		2ADBA3512B6BB9E300B3B84C /* FriendEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADBA3502B6BB9E300B3B84C /* FriendEditorView.swift */; };
-		2ADBA3532B6BBF4500B3B84C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADBA3522B6BBF4500B3B84C /* Friend.swift */; };
-		2ADBA3552B6D66A800B3B84C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADBA3542B6D66A800B3B84C /* Account.swift */; };
+		2AD0DB312BA35EE600226C85 /* CoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB302BA35EE600226C85 /* CoreStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +24,7 @@
 		2A9829642B6971FD00952815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A9829672B6971FD00952815 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2ABCE35B2B6AD7C8003A1518 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		2ABCE3622B6AF017003A1518 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		2ADBA3502B6BB9E300B3B84C /* FriendEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendEditorView.swift; sourceTree = "<group>"; };
-		2ADBA3522B6BBF4500B3B84C /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		2ADBA3542B6D66A800B3B84C /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		2AD0DB302BA35EE600226C85 /* CoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStore.swift; sourceTree = "<group>"; };
 		B3D25B6868594DBB77F59696 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F6EC0A07970A15931FE10587 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6AE2512B8FB3EB00F3ABC6 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				2A9829602B6971FB00952815 /* HomeView.swift */,
+				2ABCE35B2B6AD7C8003A1518 /* AccountView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		2A9829522B6971FB00952815 = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +71,8 @@
 		2A98295D2B6971FB00952815 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				2ADBA3542B6D66A800B3B84C /* Account.swift */,
-				2ABCE35B2B6AD7C8003A1518 /* AccountView.swift */,
-				2ABCE3622B6AF017003A1518 /* AppState.swift */,
-				2ADBA3522B6BBF4500B3B84C /* Friend.swift */,
-				2ADBA3502B6BB9E300B3B84C /* FriendEditorView.swift */,
-				2A9829602B6971FB00952815 /* HomeView.swift */,
+				2AD0DB2F2BA35ECF00226C85 /* store */,
+				2A6AE2512B8FB3EB00F3ABC6 /* ui */,
 				2A98295E2B6971FB00952815 /* Main.swift */,
 				2A9829642B6971FD00952815 /* Assets.xcassets */,
 				2A9829662B6971FD00952815 /* Preview Content */,
@@ -87,6 +86,14 @@
 				2A9829672B6971FD00952815 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AD0DB2F2BA35ECF00226C85 /* store */ = {
+			isa = PBXGroup;
+			children = (
+				2AD0DB302BA35EE600226C85 /* CoreStore.swift */,
+			);
+			path = store;
 			sourceTree = "<group>";
 		};
 		A4171BF29769483534E27474 /* Pods */ = {
@@ -220,13 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD0DB312BA35EE600226C85 /* CoreStore.swift in Sources */,
 				2A9829612B6971FB00952815 /* HomeView.swift in Sources */,
-				2ADBA3512B6BB9E300B3B84C /* FriendEditorView.swift in Sources */,
-				2ABCE3632B6AF017003A1518 /* AppState.swift in Sources */,
 				2ABCE35C2B6AD7C8003A1518 /* AccountView.swift in Sources */,
-				2ADBA3552B6D66A800B3B84C /* Account.swift in Sources */,
 				2A98295F2B6971FB00952815 /* Main.swift in Sources */,
-				2ADBA3532B6BBF4500B3B84C /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -342,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
