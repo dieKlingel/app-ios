@@ -21,12 +21,13 @@ extension Core {
         self.addAuthInfo(info: auth)
         
         let address = try! Factory.Instance.createAddress(addr: "sip:\(account.username)@\(account.server)")
+        try! address.setTransport(newValue: account.transport)
+        
         let params = try!self.createAccountParams()
         try! params.setServeraddress(newValue: address)
         try! params.setIdentityaddress(newValue: address)
         
         let acc = try! self.createAccount(params: params)
-        
         try! self.addAccount(account: acc)
         self.defaultAccount = acc
     }
