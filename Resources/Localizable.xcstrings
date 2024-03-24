@@ -101,6 +101,9 @@
     "TCP" : {
 
     },
+    "test" : {
+
+    },
     "TLS (recomended)" : {
       "localizations" : {
         "de" : {

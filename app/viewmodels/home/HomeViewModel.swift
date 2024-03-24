@@ -10,7 +10,7 @@ class HomeViewModel: NSObject {
     
     private let _core: Core
     private(set) var registrationState = RegistrationState.None
-    
+    private(set) var activeCall: Call?
     var doorbells: [Friend] = []
     
     init(_ core: Core) {
@@ -19,7 +19,8 @@ class HomeViewModel: NSObject {
         
         self._core.addDelegate(delegate: CoreDelegateStub(
             onGlobalStateChanged: onGlobalStateChanged,
-            onRegistrationStateChanged: onRegistrationStateChanged
+            onRegistrationStateChanged: onRegistrationStateChanged,
+            onCallStateChanged: onCallStateChanged
         ))
     }
   
@@ -27,7 +28,7 @@ class HomeViewModel: NSObject {
     public func refreshRegisters() {
         _core.refreshRegisters()
     }
-    
+
     private func onGlobalStateChanged(
         core: Core,
         state: GlobalState,
@@ -44,5 +45,16 @@ class HomeViewModel: NSObject {
     ) {
         HomeViewModel.logger.info("Registraion state chnaged: \(message).")
         registrationState = state
+    }
+    
+    private func onCallStateChanged(core: Core, call: Call, state: Call.State, message: String) {
+        switch(state) {
+        case .Connected:
+            self.activeCall = call
+        case .End:
+            self.activeCall = nil
+        default:
+            break
+        }
     }
 }

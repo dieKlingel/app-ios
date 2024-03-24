@@ -26,7 +26,9 @@ extension Core {
         let params = try!self.createAccountParams()
         try! params.setServeraddress(newValue: address)
         try! params.setIdentityaddress(newValue: address)
-        
+        params.pushNotificationAllowed = true
+        params.remotePushNotificationAllowed = true
+    
         let acc = try! self.createAccount(params: params)
         try! self.addAccount(account: acc)
         self.defaultAccount = acc

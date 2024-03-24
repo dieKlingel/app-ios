@@ -19,6 +19,8 @@
 		2AD0DB742BB0321B00226C85 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB732BB0321B00226C85 /* Core.swift */; };
 		2AD0DB7B2BB043B000226C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */; };
 		2AD0DB7E2BB05DD200226C85 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2AD0DB7D2BB05DD200226C85 /* Localizable.xcstrings */; };
+		2AD0DB842BB0770D00226C85 /* ActiveCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */; };
+		2AD0DB882BB0A2FC00226C85 /* VideoRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		2AD0DB732BB0321B00226C85 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD0DB7D2BB05DD200226C85 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2AD0DB7F2BB062D200226C85 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
+		2AD0DB802BB062F600226C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCallView.swift; sourceTree = "<group>"; };
+		2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderer.swift; sourceTree = "<group>"; };
 		B3D25B6868594DBB77F59696 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F6EC0A07970A15931FE10587 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +60,7 @@
 		2A6AE2512B8FB3EB00F3ABC6 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				2AD0DB812BB076D500226C85 /* call */,
 				2AD0DB3A2BA737C700226C85 /* settings */,
 				2AD0DB392BA737BF00226C85 /* home */,
 			);
@@ -82,6 +89,8 @@
 		2A98295D2B6971FB00952815 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				2AD0DB802BB062F600226C85 /* Info.plist */,
+				2AD0DB7F2BB062D200226C85 /* app.entitlements */,
 				2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */,
 				2A98295E2B6971FB00952815 /* Main.swift */,
 				2A9829642B6971FD00952815 /* Assets.xcassets */,
@@ -189,6 +198,23 @@
 				2AD0DB7D2BB05DD200226C85 /* Localizable.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2AD0DB812BB076D500226C85 /* call */ = {
+			isa = PBXGroup;
+			children = (
+				2AD0DB822BB076D900226C85 /* active */,
+			);
+			path = call;
+			sourceTree = "<group>";
+		};
+		2AD0DB822BB076D900226C85 /* active */ = {
+			isa = PBXGroup;
+			children = (
+				2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */,
+				2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */,
+			);
+			path = active;
 			sourceTree = "<group>";
 		};
 		A4171BF29769483534E27474 /* Pods */ = {
@@ -324,11 +350,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD0DB842BB0770D00226C85 /* ActiveCallView.swift in Sources */,
 				2AD0DB7B2BB043B000226C85 /* AppDelegate.swift in Sources */,
 				2AD0DB742BB0321B00226C85 /* Core.swift in Sources */,
 				2A9829612B6971FB00952815 /* HomeView.swift in Sources */,
 				2AD0DB672BB01F4200226C85 /* HomeViewModel.swift in Sources */,
 				2AD0DB712BB02FF300226C85 /* AccountViewModel.swift in Sources */,
+				2AD0DB882BB0A2FC00226C85 /* VideoRenderer.swift in Sources */,
 				2AD0DB6C2BB02CE900226C85 /* Account.swift in Sources */,
 				2AD0DB432BA7409500226C85 /* AccountView.swift in Sources */,
 				2A98295F2B6971FB00952815 /* Main.swift in Sources */,
@@ -463,13 +491,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = app/app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
 				DEVELOPMENT_TEAM = 3QLZPMLJ3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dieKlingel;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "In order for the other side to hear you, we need to access your microphone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -495,13 +526,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = app/app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
 				DEVELOPMENT_TEAM = 3QLZPMLJ3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dieKlingel;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "In order for the other side to hear you, we need to access your microphone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
