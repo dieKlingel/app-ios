@@ -21,6 +21,7 @@
 		2AD0DB7E2BB05DD200226C85 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2AD0DB7D2BB05DD200226C85 /* Localizable.xcstrings */; };
 		2AD0DB842BB0770D00226C85 /* ActiveCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */; };
 		2AD0DB882BB0A2FC00226C85 /* VideoRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */; };
+		2AD0DB8A2BB0B51500226C85 /* CallViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB892BB0B51500226C85 /* CallViewToolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		2AD0DB802BB062F600226C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCallView.swift; sourceTree = "<group>"; };
 		2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderer.swift; sourceTree = "<group>"; };
+		2AD0DB892BB0B51500226C85 /* CallViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewToolbar.swift; sourceTree = "<group>"; };
 		B3D25B6868594DBB77F59696 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F6EC0A07970A15931FE10587 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 			children = (
 				2AD0DB832BB0770D00226C85 /* ActiveCallView.swift */,
 				2AD0DB872BB0A2FC00226C85 /* VideoRenderer.swift */,
+				2AD0DB892BB0B51500226C85 /* CallViewToolbar.swift */,
 			);
 			path = active;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				2AD0DB672BB01F4200226C85 /* HomeViewModel.swift in Sources */,
 				2AD0DB712BB02FF300226C85 /* AccountViewModel.swift in Sources */,
 				2AD0DB882BB0A2FC00226C85 /* VideoRenderer.swift in Sources */,
+				2AD0DB8A2BB0B51500226C85 /* CallViewToolbar.swift in Sources */,
 				2AD0DB6C2BB02CE900226C85 /* Account.swift in Sources */,
 				2AD0DB432BA7409500226C85 /* AccountView.swift in Sources */,
 				2A98295F2B6971FB00952815 /* Main.swift in Sources */,

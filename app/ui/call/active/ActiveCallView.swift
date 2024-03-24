@@ -17,9 +17,16 @@ struct ActiveCallView: View {
     
     var body: some View {
         ZStack {
-            VideoView(call: $call)
+            VideoRenderer(call: $call)
                 .aspectRatio(640 / 480 ,contentMode: .fit)
-                .ignoresSafeArea(.all)
+            VStack {
+                Spacer()
+                CallViewToolbar {
+                    try? call.terminate()
+                }
+            }
+            .safeAreaPadding()
         }
+        .ignoresSafeArea(.all)
     }
 }

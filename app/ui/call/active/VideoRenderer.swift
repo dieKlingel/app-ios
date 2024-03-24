@@ -1,14 +1,7 @@
-//
-//  VideoView.swift
-//  app
-//
-//  Created by Kai Mayer on 24.03.24.
-//
-
 import SwiftUI
 import linphonesw
 
-struct VideoView: UIViewRepresentable {
+struct VideoRenderer: UIViewRepresentable {
     @Binding var call: Call
 
     func makeUIView(context: Context) -> UIView {
