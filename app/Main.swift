@@ -3,20 +3,16 @@ import linphonesw
 
 @main
 struct Main: App {
-    let core: Core = try! Factory.Instance.createCore(configPath: nil, factoryConfigPath: nil, systemContext: nil)
-    
-    init() {
-        try! core.start()
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
             HomeView()
                 .environment(
-                    HomeViewModel(core)
+                    HomeViewModel(delegate.core)
                 )
                 .environment(
-                    AccountViewModel(core)
+                    AccountViewModel(delegate.core)
                 )
         }
     }

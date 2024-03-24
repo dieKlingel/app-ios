@@ -68,6 +68,7 @@ struct AccountView: View {
                 username = vm.account?.username ?? ""
                 password = vm.account?.password ?? ""
                 server = vm.account?.server ?? ""
+                transport = vm.account?.transport ?? TransportType.Tls
             }
         }
     }

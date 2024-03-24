@@ -17,6 +17,7 @@
 		2AD0DB6C2BB02CE900226C85 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB6B2BB02CE900226C85 /* Account.swift */; };
 		2AD0DB712BB02FF300226C85 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB702BB02FF300226C85 /* AccountViewModel.swift */; };
 		2AD0DB742BB0321B00226C85 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB732BB0321B00226C85 /* Core.swift */; };
+		2AD0DB7B2BB043B000226C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		2AD0DB6B2BB02CE900226C85 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		2AD0DB702BB02FF300226C85 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		2AD0DB732BB0321B00226C85 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3D25B6868594DBB77F59696 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F6EC0A07970A15931FE10587 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,13 +79,14 @@
 		2A98295D2B6971FB00952815 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				2AD0DB722BB0320700226C85 /* extensions */,
-				2AD0DB3E2BA7387500226C85 /* viewmodels */,
-				2AD0DB342BA4CAFA00226C85 /* models */,
-				2A6AE2512B8FB3EB00F3ABC6 /* ui */,
+				2AD0DB7A2BB043B000226C85 /* AppDelegate.swift */,
 				2A98295E2B6971FB00952815 /* Main.swift */,
 				2A9829642B6971FD00952815 /* Assets.xcassets */,
+				2AD0DB722BB0320700226C85 /* extensions */,
+				2AD0DB342BA4CAFA00226C85 /* models */,
 				2A9829662B6971FD00952815 /* Preview Content */,
+				2A6AE2512B8FB3EB00F3ABC6 /* ui */,
+				2AD0DB3E2BA7387500226C85 /* viewmodels */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 		2AD0DB3A2BA737C700226C85 /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				2AD0DB442BA741F700226C85 /* doorbells */,
 				2AD0DB3B2BA737D000226C85 /* account */,
 			);
 			path = settings;
@@ -144,13 +146,6 @@
 			children = (
 			);
 			path = editor;
-			sourceTree = "<group>";
-		};
-		2AD0DB442BA741F700226C85 /* doorbells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = doorbells;
 			sourceTree = "<group>";
 		};
 		2AD0DB652BB01F1F00226C85 /* home */ = {
@@ -316,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD0DB7B2BB043B000226C85 /* AppDelegate.swift in Sources */,
 				2AD0DB742BB0321B00226C85 /* Core.swift in Sources */,
 				2A9829612B6971FB00952815 /* HomeView.swift in Sources */,
 				2AD0DB672BB01F4200226C85 /* HomeViewModel.swift in Sources */,
