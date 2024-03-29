@@ -8,6 +8,7 @@ struct AccountView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var server = ""
+    @State private var proxy = ""
     @State private var transport = TransportType.Tls
     
     var body: some View {
@@ -31,6 +32,15 @@ struct AccountView: View {
                     HStack {
                         Text("Server")
                         TextField("sip.dieklingel.com", text: $server)
+                            .multilineTextAlignment(.trailing)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+                            .keyboardType(.URL)
+                    }
+                    
+                    HStack {
+                        Text("Proxy")
+                        TextField("sip.dieklingel.com",text: $proxy)
                             .multilineTextAlignment(.trailing)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)

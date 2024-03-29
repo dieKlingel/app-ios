@@ -10,7 +10,7 @@ class HomeViewModel: NSObject {
     
     private let _core: Core
     private(set) var registrationState = RegistrationState.None
-    private(set) var activeCall: Call?
+    private(set) var call: Call?
     var doorbells: [Friend] = []
     
     init(_ core: Core) {
@@ -29,6 +29,14 @@ class HomeViewModel: NSObject {
         _core.refreshRegisters()
     }
 
+    public func invite(uri: String) {
+        let params = try! _core.createCallParams(call: nil)
+        params.videoEnabled = true
+        params.videoDirection = .RecvOnly
+        
+        self.call = _core.inviteWithParams(url: uri, params: params)
+    }
+    
     private func onGlobalStateChanged(
         core: Core,
         state: GlobalState,
@@ -48,13 +56,9 @@ class HomeViewModel: NSObject {
     }
     
     private func onCallStateChanged(core: Core, call: Call, state: Call.State, message: String) {
-        switch(state) {
-        case .Connected:
-            self.activeCall = call
-        case .End:
-            self.activeCall = nil
-        default:
-            break
+        self.call = call
+        if(state == .Released) {
+            self.call = nil
         }
     }
 }

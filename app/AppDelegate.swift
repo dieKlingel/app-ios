@@ -57,6 +57,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, CXProviderDelegate {
                 }
                 AppDelegate.logger.warning("An error oucoired during reporting an incomming call: \(error)")
             })
+        case .OutgoingInit:
+            let uuid = UUID()
+            calls.updateValue(call, forKey: uuid)
+            
+            provider.reportOutgoingCall(with: uuid, connectedAt: Date.now)
         case .End:
             guard let uuid = calls.first(where: { $0.value.callLog?.callId == call.callLog?.callId })?.key else {
                 return

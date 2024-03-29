@@ -1,22 +1,38 @@
 import SwiftUI
 import SwiftData
+import linphonesw
 
 struct HomeView: View {
+    @State var tab = Tabs.doorbell
     @Environment(HomeViewModel.self) private var vm
     
     var body: some View {
         NavigationStack {
-            if let call = vm.activeCall {
-                ActiveCallView(call: call)
-            } else {
-                Group {
-                    Button {
+            switch(vm.call?.state) {
+            case .OutgoingInit, .OutgoingRinging, .OutgoingProgress:
+                OutgoingCallView(call: vm.call!)
+            case .Connected, .StreamsRunning:
+                ActiveCallView(call: vm.call!)
+            default:
+                TabView(selection: $tab) {
+                    DoorbellTab()
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "bell.fill")
+                                Text("dieKlingel")
+                            }
+                        }
+                        .tag(Tabs.doorbell)
                     
-                    } label: {
-                        Text("test")
-                    }
+                    KeypadTab()
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "circle.grid.3x3.fill")
+                                Text("Keypad")
+                            }
+                        }
+                        .tag(Tabs.keypad)
                 }
-                .navigationTitle(Text("dieKlingel"))
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Menu {
@@ -59,4 +75,9 @@ struct HomeView: View {
             }
         }
     }
+}
+
+enum Tabs: Int {
+    case doorbell
+    case keypad
 }
